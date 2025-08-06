@@ -4,14 +4,14 @@ class Program
 {
     static void Main(string[] args)
     {
-        string myName = "Christian";
-        string myMothersName = "Mary";
-        string greeting = $"Hi! My name is {myName}! My Mother's name is {myMothersName} and it obviously consists of {myMothersName.Length} letters.         ";
-        string trimmedGreeting = greeting.Trim();
-        string askForWater = "If you want to ask for water in spanish then you can say the following: Can I please have some water?";
-        string askForWaterESTranslation = askForWater.Replace("Can I please have some water?", "Por favor me puedes traer agua?");
-        Console.WriteLine("Greeting: " + trimmedGreeting);
-        Console.WriteLine("Translation:" + askForWaterESTranslation);
-        Console.WriteLine("Does the askForWaterESTranslation variable have the word 'agua'?: " + askForWaterESTranslation.Contains("agua"));
+        var employee1 = (id: 1, name: "Christian", department: "IT", age: 60);
+        Console.WriteLine($"Hi! My name is {employee1.name}, I'm {employee1.age} years old and I work at the {employee1.department} department.");
+        employee1.department = "Human Resources";
+        employee1.age = employee1.age + 1;
+        Console.WriteLine($"I want to inform you that I just turned {employee1.age}! Also, I moved to the {employee1.department} department.");
+        var employee2 = employee1 with { id = 2, name = "Karen" };
+        Console.WriteLine($"Hi! My name is {employee2.name}, I'm also {employee2.age} years old and work at the {employee1.department} department.");
+
+        // Tuples have limited capabilities. That's why there are other types that define behavior. 
     }
 }
