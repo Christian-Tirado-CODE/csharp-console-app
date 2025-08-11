@@ -1,35 +1,22 @@
 ﻿namespace CSharpBasics;
 
-public readonly struct PictureFrame
-{
-    public PictureFrame(int width, int length, string shape, string color, string mountingType, string frameType)
-    {
-        Width = width;
-        Length = length;
-        Shape = shape;
-        Color = color;
-        MountingType = mountingType;
-        FrameType = frameType;
+using Models;
+using Utilities;
 
-
-    }
-
-    public int Width { get; init; }
-    public int Length { get; init; }
-    public string Shape { get; init; }
-    public string Color { get; init; }
-    public string MountingType { get; init; }
-    public string FrameType { get; init; }
-
-    public override string ToString() => $"Picture Frame: Dimensions={Length} X {Width}, Shape={Shape}, Color={Color}, MountingType={MountingType}, FrameType={FrameType}";
-
-    }  
 class Program
 {
     static void Main(string[] args)
     {
-        PictureFrame pf = new(8, 10, "Rectangular", "Black", "Wall mount", "Collage picture frame");
-        Console.WriteLine(pf.ToString());
+        string email = "johnsmith@gmail.com";
+        if (InputValidator.IsValidEmail(email))
+        {
+            Customer c = new Customer("John Smith", 42, email);
+            Console.WriteLine("Customer was created!");
+        }
+        else
+        {
+            Console.WriteLine("Write a valid email.");
+        }
 
     }
 }
